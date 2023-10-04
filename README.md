@@ -41,31 +41,64 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 # Install and configure Next.js.
 
-Create project
-Start by creating a new Next.js project using create-next-app:
-
+# Create Project
+### Start by creating a new Next.js project using create-next-app:
+shell
+```
 npx create-next-app@latest my-app --typescript --tailwind --eslint
+```
 
-Run the CLI
-
-Run the shadcn-ui init command to setup your project:
-
+### Create shadcn-ui init command to setup your project:
+shell
+```
 npx shadcn-ui@latest init
+```
 
-Now first goto Google Search
 
-type command:
-clerl authentication then register your gmail account
 
-then install the following to your terminal:
+Another Requirements for Authentication ?
+we use Clerk Authentication here's a link : https://clerk.com/?utm_source=search.yahoo.com&utm_medium=referral&utm_campaign=none
+Create and  register your gmail account or manually
+
+then install the following  documentations from the site:
+shell
+```
 npm install @clerk/nextjs
-
-then run the following command:
-npm i --D prisma
-
-npm install @prisma/client
-
-npx prisma init
+```
+### Setup .env file
 
 
-goto planetscale.com register your gmail account
+```js
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+
+# This was inserted by `prisma init`:
+# Environment variables declared in this file are automatically made available to Prisma.
+# See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
+
+# Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
+# See the documentation for all the connection string options: https://pris.ly/d/connection-strings
+
+DATABASE_URL=''
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=""
+STRIPE_API_KEY=
+FRONTEND_STORE_URL=http://localhost:3001
+STRIPE_WEBHOOK_SECRET=
+```
+
+### Connect to PlanetScale and Push Prisma
+```shell
+npx prisma generate
+npx prisma db push
+```
+
+
+### Start the app
+
+```shell
+npm run dev
+```

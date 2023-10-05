@@ -46,25 +46,22 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 # Create Project
 ### Start by creating a new Next.js project using create-next-app:
-shell
 ```
 npx create-next-app@latest my-app --typescript --tailwind --eslint
 ```
 
 ### Create shadcn-ui init command to setup your project:
-shell
 ```
 npx shadcn-ui@latest init
 ```
 
 
 
-Another Requirements for Authentication ?
-we use Clerk Authentication here's a link : https://clerk.com/?utm_source=search.yahoo.com&utm_medium=referral&utm_campaign=none
+### Setup for Authentication ?
+We use Clerk Authentication here's a link : https://clerk.com/?utm_source=search.yahoo.com&utm_medium=referral&utm_campaign=none
 Create and  register your gmail account or manually
 
-then install the following  documentations from the site:
-shell
+then read the following instruction for installation from the site:
 ```
 npm install @clerk/nextjs
 ```
